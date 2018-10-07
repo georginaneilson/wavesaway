@@ -7,4 +7,3 @@ Built with HTML, SCSS and ReactJs.
 ##### Dependancies
 - Jordan
 - who knows?
-s
