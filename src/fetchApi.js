@@ -1,30 +1,22 @@
-    let var1;
     const url = "http://magicseaweed.com/api/a346de26175eefe8d34252c8a6f2b14a/forecast/?spot_id=828"; //sandend url
     console.log(url);
 
-    function status(response) {
-      if (response.status >= 200 && response.status < 300) {
-        return Promise.resolve(response)
-      } else {
-        return Promise.reject(new Error(response.statusText))
-      }
-    }
+    // fetch(url)
+    // .then ((response) => response.json())
+    // .then(function (data) {
+    // // do something
+    // });
 
-    function json(response) {
+
+    async function getData(url) {
+      const response = await fetch(url);
+
       return response.json()
     }
 
+    async function main() {
+      const data = await getData(URL);
 
-    fetch(url)
-      .then(status)
-      .then(json)
-      .then(function (data) {
-        console.log('Request succeeded with JSON response', data);
-        let var1 = data[0].swell;
-        console.log(var1)
-        return var1;
-      }).catch(function (error) {
-        console.log('Request failed', error);
-      });
-
-      export default var1;
+      console.log(data);
+      return data;
+    }
