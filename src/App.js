@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import var1 from './fetchApi';
 
 class App extends Component {
   render() {
+    
+    console.log('var1: ', var1);
+
+
+
+
+
+
     return (
       <div className="App">
         <header className="App-header">
