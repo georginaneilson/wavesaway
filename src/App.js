@@ -14,43 +14,15 @@ class App extends Component {
   componentDidMount() {
     const url = "http://magicseaweed.com/api/a346de26175eefe8d34252c8a6f2b14a/forecast/?spot_id=828"; //sandend url
     console.log(url);
-    let dataTest;
 
     fetch(url).then(function (response) {
       return response.json()
     }).then(json => {
       console.log('parsed json ', json);
-      this.setState({ sandend: json });
+      this.setState({ sandend: json[0] });
     }).catch((error) => {
       console.log(error);
     })
-
-    // function test(data){
-    //   dataTest = data;
-    //   console.log('datatest func: ', dataTest);
-    //   //console.log('state: ', this.state.sandend);
-    //   // if(this.state.sandend === ''){
-    //   //   console.log('reached if')
-    //   //   // this.setState({
-    //   //   //     sandend: dataTest
-    //   //   // });
-    //   // }
-      
-    // }
-
-    // function callback() {
-    //   fetch(url)
-    //     .then((response) => response.json())
-    //     .then(function (data) {
-    //       console.log('data: ', data[0]);
-    //       // do something
-    //       test(data);
-
-    //     });
-      
-    // }
-    //console.log('datatest: ', dataTest);
-    // callback();
   }
 
   render() {
@@ -63,7 +35,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+          
           </p>
           <a
             className="App-link"
