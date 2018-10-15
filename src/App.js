@@ -4,11 +4,11 @@ import './App.css';
 //import var1 from './fetchApi';
 
 class App extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
-      sandend : ''
-    } 
+      sandend: 'something'
+    };
   }
 
   componentDidMount() {
@@ -16,35 +16,46 @@ class App extends Component {
     console.log(url);
     let dataTest;
 
-    function test(data){
-      dataTest = data;
-      console.log('datatest func: ', dataTest);
-      if(this.state.sandend === ''){
-        this.setState({
-            sandend: dataTest
-        });
-      }
-      
-    }
+    fetch(url).then(function (response) {
+      return response.json()
+    }).then(json => {
+      console.log('parsed json ', json);
+      this.setState({ sandend: json });
+    }).catch((error) => {
+      console.log(error);
+    })
 
-    function callback() {
-      fetch(url)
-        .then((response) => response.json())
-        .then(function (data) {
-          console.log('data: ', data[0]);
-          // do something
-          test(data);
-
-        });
+    // function test(data){
+    //   dataTest = data;
+    //   console.log('datatest func: ', dataTest);
+    //   //console.log('state: ', this.state.sandend);
+    //   // if(this.state.sandend === ''){
+    //   //   console.log('reached if')
+    //   //   // this.setState({
+    //   //   //     sandend: dataTest
+    //   //   // });
+    //   // }
       
-    }
-    console.log(dataTest);
-    callback();
+    // }
+
+    // function callback() {
+    //   fetch(url)
+    //     .then((response) => response.json())
+    //     .then(function (data) {
+    //       console.log('data: ', data[0]);
+    //       // do something
+    //       test(data);
+
+    //     });
+      
+    // }
+    //console.log('datatest: ', dataTest);
+    // callback();
   }
 
   render() {
 
-    
+    console.log('state: ', this.state.sandend);
 
 
     return (
