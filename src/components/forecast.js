@@ -22,7 +22,7 @@ class Forecast extends Component {
   render() { 
     return ( 
       <div>
-
+      <TimeStamp time={this.props.forecast}></TimeStamp>
       <StarRating forecast={this.props.forecast}></StarRating>
       </div>
     );

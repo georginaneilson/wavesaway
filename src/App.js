@@ -47,11 +47,12 @@ this.forceUpdate();
         <header className="App-header">
         
           <span role="img" aria-label="ocean emoji"> 🌊 </span>
-
+< div className = "forecastContainer" >
           <Forecast forecast={this.state.json[2]}></Forecast>
           <Forecast forecast={this.state.json[4]}></Forecast>
           <Forecast forecast={this.state.json[6]}></Forecast>
           <Forecast forecast={this.state.json[7]}></Forecast>
+          </div>
           
         </header>
       </div>

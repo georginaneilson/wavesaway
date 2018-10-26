@@ -15,10 +15,6 @@ class StarRating extends Component {
     let rating = [];
      let forecast = this.props.forecast;
 
-
-     //console.log('check2: ', this.props.forecast[2]);
-     //console.log('solid: ', forecast.solidRating);
-
      // Loop the solid rating on a single forecast object.
      for (let i = 0; i < forecast.solidRating; i++) {
        rating.push('<img src="http://cdnimages.magicseaweed.com/star_filled.png" />');
@@ -28,13 +24,11 @@ class StarRating extends Component {
      for (let i = 0; i < forecast.fadedRating; i++) {
        rating.push('<img src="http://cdnimages.magicseaweed.com/star_empty.png" />');
      }
-
-     console.log('rating: ', rating);
      let ratingObj = rating.join(" ");
      if(this.state.getRating === ''){
  this.setState({
-   getRating: ratingObj.toString
- }, () => { console.log('this.state: ', this.state.getRating)});
+   getRating: ratingObj
+ });
      }
     
     }
@@ -50,9 +44,7 @@ this.getStarRating();
   }
   render() {
     return (
-          <div id = "ratingContainer" >
-{this.state.getRating}
-            </div>
+          <div id="ratingContainer" dangerouslySetInnerHTML={{__html: this.state.getRating}}></div>
     );
   }
 }
