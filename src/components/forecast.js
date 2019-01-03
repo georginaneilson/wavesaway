@@ -12,7 +12,7 @@ class Forecast extends Component {
   }
 
   componentDidMount() {
-
+console.log('forecast forecast: ', this.props.forecast)
   }
 
   componentDidUpdate() {

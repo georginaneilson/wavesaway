@@ -32,15 +32,18 @@ class App extends Component {
  
 this.fetchData();
 this.forceUpdate();
-    
+   
   }
   
   componentDidUpdate(){
-//this.fetchData();
+if(this.state.json === ''){
+  
+  this.fetchData();}
+   console.log("state: ", this.state.json)
 
   }
+
   render() {
-    console.log(' . : ', this.state.json[2])
     return (
      
       <div className="App">
